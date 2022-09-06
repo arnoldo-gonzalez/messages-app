@@ -1,0 +1,25 @@
+:root {
+  --bg-color: rgb(232, 237, 198);
+  --main-color: rgb(238, 224, 26);
+  --ligth-main-color: rgba(238, 224, 26, 0.3);
+  --dark-main-color: rgb(125, 119, 33);
+  --green: rgb(25, 192, 25);
+  --red: rgb(211, 27, 20);
+  --rounded-md: 10px;
+  --rounded-sm: 5px;
+  --xl2: 50px;
+  --xl: 35px;
+  --lg: 25px;
+  --md: 20px;
+  --base: 16px;
+  --sm: 13px;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed', sans-serif;
+  src: url("./rubic.ttf");
+}
+
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+}

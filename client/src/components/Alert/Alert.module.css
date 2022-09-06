@@ -1,0 +1,101 @@
+.message {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 90%;
+  right: 0;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+  margin: 0 auto;
+  opacity: 1;
+  transform: translateY(-20px);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 7px 22px -5px #000;
+  border-left: 6px solid transparent;
+  opacity: 0;
+  transform: translateY(0);
+  transition: none .2s ease-in;
+  transition-property: opacity, transform;
+  animation: show .4s ease-out 1;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+.message__h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.message__p {
+  color: #000;
+}
+
+.message__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: var(--red);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.message__button svg {
+  font-size: 20px;
+}
+
+.warning {
+  border-color: var(--main-color);
+}
+
+.warning h4 {
+  color: var(--main-color);
+}
+
+.error {
+  border-color: var(--red);
+}
+
+.error h4 {
+  color: var(--red);
+}
+
+.sucess {
+  border-color: var(--green);
+}
+
+.sucess h4 {
+  color: var(--green);
+}
+
+/*
+
+  EFFECTS
+
+*/
+
+.hide {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.show {
+  transform: translateY(-20px);
+  opacity: 1;
+}

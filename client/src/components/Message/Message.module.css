@@ -1,0 +1,48 @@
+.message {
+  position: relative;
+  display: flex;
+  overflow: visible;
+  flex-direction: column;
+  row-gap: 3px;
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 10%;
+  max-width: 70%;
+}
+
+.message__h5, .message__p {
+  z-index: 10;
+  position: relative;
+}
+
+.left {
+  align-self: flex-start;
+  background-color: var(--main-color);
+}
+
+.left::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: -10px;
+  border-top: 15px solid transparent;
+  border-right: 15px solid var(--main-color);
+  border-bottom: 15px solid transparent;
+  transform: rotate(65deg);
+}
+
+.rigth {
+  align-self: flex-end;
+  background-color: var(--green);
+}
+
+.rigth::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  bottom: -10px;
+  border-top: 15px solid transparent;
+  border-right: 15px solid var(--green);
+  border-bottom: 15px solid transparent;
+  transform: rotate(-18deg);
+}
