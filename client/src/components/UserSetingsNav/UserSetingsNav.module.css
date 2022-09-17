@@ -1,0 +1,13 @@
+.nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav__li-name {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3px;
+  text-decoration: underline 2px #000;
+}

@@ -1,10 +1,20 @@
 .messages {
-  scroll-behavior: smooth;
+  position: relative;
   flex-grow: 1;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   padding: 15px;
   row-gap: 15px;
-  max-height: 78vh;
   overflow-y: auto;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.messages__h2 {
+  display: inline-block;
+  text-align: center;
 }

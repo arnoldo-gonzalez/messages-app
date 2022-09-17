@@ -1,5 +1,5 @@
 :root {
-  --bg-color: rgb(232, 237, 198);
+  --bg-color: rgba(170, 182, 94, .5);
   --main-color: rgb(238, 224, 26);
   --ligth-main-color: rgba(238, 224, 26, 0.3);
   --dark-main-color: rgb(125, 119, 33);
@@ -13,6 +13,7 @@
   --md: 20px;
   --base: 16px;
   --sm: 13px;
+  --screen-md: 800px;
 }
 
 @font-face {

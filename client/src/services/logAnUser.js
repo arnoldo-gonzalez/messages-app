@@ -1,5 +1,5 @@
-export default function logAnUser(userData) {
-  return fetch("http://192.168.1.119:3000/api/getOneUser", {
+export default function logAnUser(userData, url) {
+  return fetch(url, {
     method: "POST",
     headers: {
       "Content-type": "application/json"
@@ -7,15 +7,14 @@ export default function logAnUser(userData) {
     body: JSON.stringify(userData)
   })
     .then(res => res.ok ? res.json() : Promise.reject())
-    .then( ({ok, user}) => {
+    .then( ({ok, user, error}) => {
       if (ok) {
-        localStorage.setItem("account", JSON.stringify(user))
-        return {error: null}
+        localStorage.setItem("user", JSON.stringify(user))
+        return {error: null, username: user.username}
       }
-      else return {error: true}
+      else return {error: true, body: error}
     })
-    .catch( err => {
-      console.log(err)
+    .catch( () => {
       return false
     })
 }

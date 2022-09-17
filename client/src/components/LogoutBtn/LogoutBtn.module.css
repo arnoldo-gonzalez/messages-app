@@ -1,0 +1,28 @@
+.btn {
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #000000;
+  cursor: pointer;
+  transition: none .2s ease-in;
+  transition-property: background-color, color;
+}
+
+.btn span {
+  display: contents;
+  font-size: 25px;
+}
+
+.btn:hover, .btn:focus {
+  border-color: var(--red);
+  background-color: var(--red);
+  color: #fff;
+}
+
+.btn:focus {
+  outline: 4px solid #000000;
+}

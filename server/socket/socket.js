@@ -1,18 +1,31 @@
 import {Server as SokectServer} from "socket.io";
 import * as Actions from "./socketActions.js";
+import { validateConnection, getAllredyUsers } from "./socketFunctions.js";
+import { decodeJWT } from "../helpers/JWT.js";
 
-export default function socket(server) {
+export default function socket(server) { 
   const io = new SokectServer(server, {
     cors: {
-      origin: "http://127.0.0.1:5173"
+      origin: "http://192.168.1.117:5173"
     }
   })
+  
+  io.use(validateConnection)
 
-  io.on("connection", socket => {
-    console.log("userConnected", socket.id);
-    console.log(socket.handshake.auth);
+  io.on("connection", async socket => {
+    const {token, chatId} = socket.handshake.auth
+    const user = decodeJWT(token)
+
+    socket.join(chatId)
+
+    socket.to(chatId).emit("new_user", {username: user.username, sid: socket.id})
+
+    const users = await getAllredyUsers(io, token, chatId)
+    console.log(users)
+    socket.emit("alredy_users", users)
+
     Object.entries(Actions).forEach( ([type, fn]) => {
-      socket.on(type, (data) => fn({socket, io, data}))
+      socket.on(type, (data) => fn({socket, io, data, room: chatId}))
     })
   })
 }

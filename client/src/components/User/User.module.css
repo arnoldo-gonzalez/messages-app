@@ -1,0 +1,29 @@
+.user {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 15px 5px;
+  border-radius: 20px;
+  background-color: var(--dark-main-color);
+}
+
+.user__h4 {
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.user__status {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.green {
+  background-color: var(--green);
+}
+
+.red {
+  background-color: var(--red);
+}

@@ -1,0 +1,50 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  border-radius: calc(var(--rounded-md) - 6px);
+  background-color: rgba(100, 100, 100, .98);
+}
+
+.loading, .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  animation: spin 2s linear infinite;
+  border: 8px solid rgb(219, 219, 219);
+  border-top-color: var(--main-color);
+  border-radius: 50%;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading__p {
+  color: rgb(219, 219, 219);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+}
