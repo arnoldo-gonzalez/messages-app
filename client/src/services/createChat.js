@@ -1,5 +1,5 @@
 export default function createChat (token, data) {
-  return fetch("http://192.168.1.117:3000/api/createChat", {
+  return fetch("http://192.168.1.119:3000/api/createChat", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

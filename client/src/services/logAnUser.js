@@ -8,10 +8,7 @@ export default function logAnUser(userData, url) {
   })
     .then(res => res.ok ? res.json() : Promise.reject())
     .then( ({ok, user, error}) => {
-      if (ok) {
-        localStorage.setItem("user", JSON.stringify(user))
-        return {error: null, username: user.username}
-      }
+      if (ok) return user
       else return {error: true, body: error}
     })
     .catch( () => {

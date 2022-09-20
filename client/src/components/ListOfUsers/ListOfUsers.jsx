@@ -9,7 +9,7 @@ import { FaUserFriends } from "react-icons/fa";
 
 const el = document.createElement("div")
 
-export default function ListOfUsers({children}) {
+export default function ListOfUsers() {
   const [active, setActive] = useState(false)
   const { socket } = useSocket()
    
@@ -18,7 +18,7 @@ export default function ListOfUsers({children}) {
   useEffect(() => {
     const closeBtnPlace = document.getElementById("close-btn-root")
     closeBtnPlace.appendChild(el)
-    console.log(createPortal)
+
     const handleAlredyUsers = Handlers.createHandleAlredyUsers(setUsers)
     const handleNewUser = Handlers.createHandleNewUser(setUsers)
     const handleDisconnect = Handlers.createHandleDisconnect(setUsers)

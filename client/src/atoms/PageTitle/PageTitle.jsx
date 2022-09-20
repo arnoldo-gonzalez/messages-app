@@ -1,7 +1,7 @@
 import styles from "./PageTitle.module.css"
 
-export default function PageTitle() {
+export default function PageTitle({small = false}) {
   return (
-    <h1 className={styles.h1}>Messages <b>Red</b><b>Wri</b>ters</h1>
+    <h2 className={`${styles.h1} ${small ? styles.small : ""}`}>Messages <b>Red</b><b>Wri</b>ters</h2>
   )
 }

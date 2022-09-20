@@ -10,7 +10,7 @@ import { useUser } from "../../context/UserContext";
 
 export default function ChatSearchSection() {
   const {user: {token}} = useUser()
-  const url = `http://192.168.1.117:3000/api/getPublicChats`;
+  const url = `http://192.168.1.119:3000/api/getPublicChats`;
   const {isLoading, setData, data: chats} = useFetch(() => fetchResources(url, token), "Public chats");
 
   const [search, setSearch] = useState("")

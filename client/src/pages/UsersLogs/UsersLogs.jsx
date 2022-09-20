@@ -9,11 +9,11 @@ import { allContent } from "../../data/UsersLogs";
 import { useState } from "react";
 import Loading from "../../atoms/Loading/Loading";
 import { useAlerts } from "../../context/AlertsContext";
+import { useUser } from "../../context/UserContext";
 
 export default function UsersLogs({singIn}) {
-  const navigate = useNavigate()
   const {types, handleToast} = useAlerts()
-  const user = JSON.parse(localStorage.getItem("user") || null)
+  const {user, handleLogin} = useUser()
   const contents = singIn ? allContent.SING_IN : allContent.SING_UP
   const url = contents.urlToFetch
   const [isLoading, setIsLoading] = useState(false)
@@ -27,9 +27,9 @@ export default function UsersLogs({singIn}) {
         if (!result) return handleToast("Some thing fail, check your network connection and try again", types.error)
 
         if (result.error) return handleToast(result.body, types.error)
+        handleLogin(result, "/log_on_chat")
 
         handleToast(`Hello ${result.username}, You have sucessfully logged in`, types.success)
-        navigate("/log_on_chat", {replace: false})
       })
   }
 

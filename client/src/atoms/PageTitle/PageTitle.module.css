@@ -11,6 +11,12 @@
   text-align: center;
 }
 
+.h1.small {
+  font-size: var(--lg);
+  padding: 5px 15px;
+  background-color: #000;
+}
+
 .h1 span {
   text-transform: uppercase;
 }
@@ -25,8 +31,8 @@
 
 @media screen and (min-width: 490px) {
   .h1 {
-     width: auto;
-     padding: 10px 15px;
-     font-size: var(--xl);
+    width: auto;
+    padding: 10px 15px;
+    font-size: var(--xl);
   }
 }

@@ -18,41 +18,45 @@ export function SocketProvider ({children}) {
   const {types, handleToast} = useAlerts()
   const disconnectSocket = () => socket.disconnect()
   
-  const socket = io("http://192.168.1.117:3000", {
+  const socket = io("http://192.168.1.119:3000", {
     auth: {
       token,
       chatId
     }
   })
 
-  socket.on("connect_error", (err) => {
-    if (!err?.data) {
-      handleToast("The connection to the chat server failed, check your connection and try again", types.error)
-      socket.disconnect()
-      return navigate("/log_on_chat", {replace: true})
-    }
-
-    const { code } = err.data
-    if (code === 401) return handleLogout()
-    if (code === 404) {
-        handleToast("Chat not found, try again with another chat id", types.error)
-        return navigate("/log_on_chat", {replace: true})
-    }
-  })
-
-  socket.on("disconnect", (reason) => {
-    if (reason === "io server disconnect") {
-        handleToast("You have been disconnected of the chat, try to get into the chat later", types.error)
-        return navigate("/log_on_chat", {replace: true})
-    }
-  })
-
   const data = {socket, chatId}
 
   useEffect(() => {
-    return () => {      
+    const handleConnectionError = (err) => {
+      if (!err?.data) {
+        handleToast("The connection to the chat server failed, check your connection and try again", types.error)
+        socket.disconnect()
+        return navigate("/log_on_chat", {replace: true})
+      }
+      const { code } = err.data
+      if (code === 401) return handleLogout()
+      if (code === 404) {
+          handleToast("Chat not found, try again with another chat id", types.error)
+          return navigate("/log_on_chat", {replace: true})
+      }
+    }
+    const handleDisconnect = (reason) => {
+      if (reason === "io server disconnect") {
+          handleToast("You have been disconnected of the chat, try to get into the chat later", types.error)
+          return navigate("/log_on_chat", {replace: true})
+      }
+    }
+
+    socket.on("connect_error", handleConnectionError)
+    socket.on("disconnect", handleDisconnect)
+
+    return () => {
       if (socket.connected) disconnectSocket();
       else socket.on("connect", disconnectSocket);
+
+      socket.off("connect_error", handleConnectionError);
+      socket.off("disconnect", handleDisconnect);
     }
   }, [])
 

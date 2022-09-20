@@ -7,7 +7,7 @@ import { useUser } from "../../context/UserContext"
 export default function ChatTitle() {
   const {user: {token}} = useUser()
   const {chatId} = useSocket()
-  const url = `http://192.168.1.117:3000/api/${chatId}/getChatTitle`
+  const url = `http://192.168.1.119:3000/api/${chatId}/getChatTitle`
   const { data, isLoading } = useFetch(() => fetchResources(url, token))
 
   return (

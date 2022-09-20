@@ -41,7 +41,6 @@ router.post("/api/sing_up", async (req, res) => {
         }})
       })
   })
-  console.log("AAAAAA")
 })
 
 router.post("/api/sing_in", async (req, res) => {

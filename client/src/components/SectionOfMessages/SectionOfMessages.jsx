@@ -10,7 +10,7 @@ import Loading from "../../atoms/Loading/Loading";
 export default function SectionOfMessages() {
   const {user: {token, id}} = useUser()
   const { chatId, socket } = useSocket()
-  const url = `http://192.168.1.117:3000/api/${chatId}/getMessagesOfAnChat`;
+  const url = `http://192.168.1.119:3000/api/${chatId}/getMessagesOfAnChat`;
 
   const {isLoading, data} = useFetch(() => fetchResources(url, token), "Messages on this chat")
   const [messages, setMessages] = useState(data)

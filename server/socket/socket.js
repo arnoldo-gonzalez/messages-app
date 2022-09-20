@@ -6,7 +6,7 @@ import { decodeJWT } from "../helpers/JWT.js";
 export default function socket(server) { 
   const io = new SokectServer(server, {
     cors: {
-      origin: "http://192.168.1.117:5173"
+      origin: ["http://192.168.1.117:5173", "http://192.168.1.119:5173"]
     }
   })
   

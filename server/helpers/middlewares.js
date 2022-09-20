@@ -4,6 +4,7 @@ import {getOneUser} from "../database/usersDB.js";
 
 export async function validateJWT(req, res, next) {
   const token = req.get("Authorization")
+
   if (!token || !token.toLowerCase().startsWith("bearer") || token.length < 8 ) {
     return res.status(401).json({ok: false, error: "Unauthorized"})
   }
@@ -15,8 +16,7 @@ export async function validateJWT(req, res, next) {
   const user = await getOneUser({uuid: userData.uuid})
 
   if (!user) return res.status(401).json({ok: false, error: "Unauthorized"})
-
-  req.userData = userData
+  req.user = user
 
   next()
 }

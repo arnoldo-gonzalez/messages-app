@@ -1,6 +1,7 @@
 import styles from "./ChatsLogsForm.module.css";
 import Input from "../../atoms/Input/Input"
 import { useState } from "react";
+import { useAlerts } from "../../context/AlertsContext"
 
 export default function ChatsLogsForm({label, id, placeholder, name, createChat, onSubmit}) {
   const [data, setData] = useState(() => {
@@ -11,6 +12,7 @@ export default function ChatsLogsForm({label, id, placeholder, name, createChat,
     return {chatId: ""}
   })
   const [showData, setShowData] = useState("")
+  const {types, handleToast} = useAlerts()
 
   const handleChange = ({target: {name, value}}) => {
     setData(prev => ({...prev, [name]: value}))
@@ -22,6 +24,8 @@ export default function ChatsLogsForm({label, id, placeholder, name, createChat,
     if (!data || Object.entries(data).some( ([key, value]) => !key || !value)) return
 
     const {privateDescription, publicDescription, ...validData} = data
+
+    if (createChat === "true" && (validData.chatTitle.length < 2 || validData.chatTitle.length > 25) ) return handleToast("The length of chat title must be between 2 and 25", types.warn)
 
     if (createChat === "true") {
       onSubmit(validData, createChat)
@@ -39,14 +43,14 @@ export default function ChatsLogsForm({label, id, placeholder, name, createChat,
       <Input value={createChat === "true" ? data.chatTitle : data.chatId} onChange={handleChange} label={label} id={id} name={name} required={true} placeholder={placeholder} type="text" />
       {createChat === "true" && (
       <>
-      <div className={styles["visibility-container"]}>
-        <label htmlFor="visibility" className={styles["visibility-container__label"]}>Chat Visibility:</label>
-        <select name="visibility" className={styles["visibility-container__select"]} onChange={handleChange} required={true} id="visibility">
-          <option name="public" value="public">Public</option>
-          <option name="private" value="private">Private</option>
-        </select>
-      </div>
-      <p className={styles["visibility-description"]}><span>Description:</span> {data[data.visibility + "Description"]}</p>
+        <div className={styles["visibility-container"]}>
+          <label htmlFor="visibility" className={styles["visibility-container__label"]}>Chat Visibility:</label>
+          <select name="visibility" className={styles["visibility-container__select"]} onChange={handleChange} required={true} id="visibility">
+            <option name="public" value="public">Public</option>
+            <option name="private" value="private">Private</option>
+          </select>
+        </div>
+        <p className={styles["visibility-description"]}><span>Description:</span> {data[data.visibility + "Description"]}</p>
       </>
       )}
       <Input value={createChat === "true" ? "Create the chat" : "Enter in the chat"} label={false} type="submit" />

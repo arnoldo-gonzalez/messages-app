@@ -13,7 +13,13 @@
   --md: 20px;
   --base: 16px;
   --sm: 13px;
-  --screen-md: 800px;
+  --header-heigth: 17vh;
+}
+
+@media screen and (min-width: 500px) {
+  :root {
+    --header-heigth: 13vh;
+  }
 }
 
 @font-face {
@@ -23,4 +29,12 @@
 
 * {
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+.green {
+  color: var(--green);
+}
+
+.red {
+  color: var(--red);
 }

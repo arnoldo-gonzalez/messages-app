@@ -6,6 +6,12 @@ const userSchema = new Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   uuid: {type: String, required: true, unique: true},
+  chats: [
+    {
+      title: String,
+      id: String
+    }
+  ]
 })
 
 const messageSchema = new Schema({

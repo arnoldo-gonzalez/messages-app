@@ -16,8 +16,6 @@ export default function ChatLogsSections() {
 
   const handleAction = (data, isCreateAChat) => {
     setIsLoading(true)
-    console.log(data)
-
     
     if (isCreateAChat === "true") {
       return createChat(token, {title: data.chatTitle, visibility: data.visibility})

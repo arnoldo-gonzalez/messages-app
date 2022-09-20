@@ -5,7 +5,7 @@
   row-gap: 5px;
   padding: 25px 10px;
   width: 100%;
-  min-height: 100vh;
+  min-height: 20rem;
   background-color: var(--bg-color);
 }
 

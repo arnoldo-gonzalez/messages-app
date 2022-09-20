@@ -10,15 +10,19 @@ router.post("/api/createChat", validateJWT, (req, res) => {
   const {title, visibility} = req.body
   const lowerCasedVisibility = visibility.toLowerCase()
 
-  if (!validateText(title) || !validateVisibility(lowerCasedVisibility)) {
+  if (!validateText(title) || !validateVisibility(lowerCasedVisibility) || title.length > 25) {
     return res.json({ok: false, error: "Invalid data"})
   }
 
   const chatId = createID()
-  console.log(chatId)
+  const user = req.user
+
   createChat({chatId, title, visibility: lowerCasedVisibility})
     .then( () => {
-      res.json({ok: true, error: null, chatId})
+      user.chats = user.chats.concat({title, id: chatId})
+      user.save()
+        .then(() => res.json({ok: true, error: null, chatId}))
+        .catch(() => res.json({ok: true, error: "Error on save the chat", chatId}))
     })
     .catch(err => {
       console.log(err)
