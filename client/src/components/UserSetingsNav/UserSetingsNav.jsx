@@ -8,12 +8,10 @@ export default function UserSetingsNav () {
   const {user: {username}} = useUser()
 
   return (
-    <div className={styles.container}>
-      <OptionsList icon={<FaUserAlt />} text="Open and close the user settings">
-        <li className={styles["container__li-name"]}>{username}</li>
-        <li><span><FaUserCog /></span>User settings</li>
-        <li><LogoutBtn /></li>
-      </OptionsList>
-    </div>
+    <OptionsList icon={<FaUserAlt />} text="Open and close the user settings">
+      <li className={styles["container__li-name"]}>{username}</li>
+      <li><span><FaUserCog /></span>User settings</li>
+      <li><LogoutBtn /></li>
+    </OptionsList>
   )
 }

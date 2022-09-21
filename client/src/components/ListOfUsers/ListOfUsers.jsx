@@ -37,7 +37,7 @@ export default function ListOfUsers() {
   return (
     <>
     {createPortal(
-    <CloseButton flote={true} state={true} setState={setActive}>
+    <CloseButton state={true} setState={setActive}>
       <FaUserFriends />
     </CloseButton>
     , el)}

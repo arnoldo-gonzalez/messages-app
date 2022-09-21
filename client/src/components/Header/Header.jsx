@@ -14,7 +14,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.header__title}><PageTitle small={true} /></Link>
+      <div className={styles.header__title}>
+        <Link to="/" title="Go to Home" className={styles["header__link-home"]}><PageTitle small={true} /></Link>
+      </div>
       <nav className={styles.header__nav}>
         <CloseButton state={!isNavActive} setState={setIsNavActive} >
           <FaBars />

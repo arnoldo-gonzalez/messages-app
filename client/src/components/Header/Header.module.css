@@ -15,7 +15,13 @@
 
 .header__title {
   flex-grow: 1;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding-right: 10px;
+}
+
+.header__link-home {
+  display: inline;
   text-decoration: none;
 }
 

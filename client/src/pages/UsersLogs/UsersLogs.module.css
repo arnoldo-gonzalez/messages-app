@@ -6,6 +6,7 @@
   padding: 25px 10px;
   width: 100%;
   min-height: 20rem;
+  min-height: calc(100vh - var(--header-heigth));
   background-color: var(--bg-color);
 }
 

@@ -4,7 +4,7 @@
   align-items: center;
   cursor: pointer;
   padding: 10px;
-  font-size: 25px;
+  font-size: 20px;
   color: #000;
   opacity: 1;
   border-radius: 50%;
@@ -21,21 +21,6 @@
 
 .btn.hidden {
   opacity: 0;
-}
-
-.btn.flote {
-  height: 50px;
-  width: 50px;
-  border-color: transparent;
-  background-color: #000;
-  color: #ffffff;
-}
-
-.btn.flote:hover, .btn.flote:focus {
-  color: #000;
-  background-color: transparent;
-  border: 2px solid var(--dark-main-color);
-  box-shadow: -4px 2px 20px -5px #000;
 }
 
 @media screen and (min-width: 800px) {

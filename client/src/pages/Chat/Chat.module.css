@@ -17,13 +17,20 @@
 
 .main__header {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  column-gap: 10px;
+  gap: 10px;
   padding: 10px 5px;
   background-color: var(--ligth-main-color);
 }
 
+@media screen and (min-width: 600px) {
+  .main__header {
+    flex-direction: row;
+  }
+}
 
 @media screen and (min-width: 800px) {
   .main__h1 {
@@ -35,4 +42,17 @@
   .main__btn {
     display: none;
   }
+}
+
+.close-btn-root {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5px;
+}
+
+.chatId-li {
+  display: flex;
+  max-width: 150px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }

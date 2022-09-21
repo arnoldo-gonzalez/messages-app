@@ -31,13 +31,13 @@ export default function OptionsList({children, icon, text}) {
   };
 
   return (
-    <>
-    <button tabIndex="5" className={`${styles.btn} ${showOptions ? styles.active : ""}`} onClick={handleClick} aria-label={text}>
-        {!showOptions ? icon : <CgClose />}
-    </button>
-    <ul ref={ref} className={`${styles.ul} ${showOptions ? styles.active : ""}`}>
-        {children}
-    </ul>
-    </>
+    <div className={styles.container}>
+      <button tabIndex="5" className={`${styles.btn} ${showOptions ? styles.active : ""}`} onClick={handleClick} aria-label={text}>
+          {!showOptions ? icon : <CgClose />}
+      </button>
+      <ul ref={ref} className={`${styles.ul} ${showOptions ? styles.active : ""}`}>
+          {children}
+      </ul>
+    </div>
   )
 }

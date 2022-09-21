@@ -11,6 +11,6 @@ export default function ChatTitle() {
   const { data, isLoading } = useFetch(() => fetchResources(url, token))
 
   return (
-  <h1 className={h1}>{isLoading ? "Loading the chat title" : data.title}</h1>
+  <h1 className={h1}>{isLoading !== false ? "Loading the chat title" : data.title}</h1>
   )
 }

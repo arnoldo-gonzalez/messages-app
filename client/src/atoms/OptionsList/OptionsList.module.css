@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -85,12 +92,16 @@
   transition-property: cursor, background-color;
 }
 
-.ul > li:not(:last-child) {
+.ul > li:first-child {
+  cursor: auto;
+}
+
+.ul > li:not(:last-child):not(:first-child) {
   padding: 5px;
   cursor: pointer;
 }
 
-.ul > li:not(:last-child):hover {
+.ul > li:not(:last-child):not(:first-child):hover {
   color: #000;
   background-color: #ffffff;
 }

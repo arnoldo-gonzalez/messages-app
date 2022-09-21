@@ -15,6 +15,15 @@
   position: relative;
 }
 
+.message__time {
+  font-size: 13px;
+  color: rgb(70, 70, 70);
+}
+
+.left .message__time {
+  align-self: flex-start;
+}
+
 .left {
   align-self: flex-start;
   background-color: var(--main-color);
@@ -29,6 +38,10 @@
   border-right: 15px solid var(--main-color);
   border-bottom: 15px solid transparent;
   transform: rotate(65deg);
+}
+
+.rigth .message__time {
+  align-self: flex-end;
 }
 
 .rigth {
