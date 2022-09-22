@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
 import { Router } from "express";
+import { validateJWT } from "../helpers/middlewares.js";
 import { validateEmail, validateText, validatePassword } from "../helpers/validations.js";
 import { createJWT } from "../helpers/JWT.js";
 import { emailAlredyExist, createUser, getOneUser } from "../database/usersDB.js";
@@ -29,15 +30,11 @@ router.post("/api/sing_up", async (req, res) => {
     createUser({email, hashPassword, username, uuid})
       .then(user => {
         if (!user) res.status(500).json({ok: false, user: null, error: "Error on create the user"})
-        console.log({
-          username,
-          email,
-          token,
-        })
         res.json({ok: true, error: null, user: {
           username,
+          token,
           email,
-          token
+          id: uuid
         }})
       })
   })
@@ -62,8 +59,13 @@ router.post("/api/sing_in", async (req, res) => {
         return res.status(200).json({ok: true, user: {
           username,
           token,
+          email,
           id: uuid
         }})
       })
     })
+})
+
+router.post("/api/validateToken", validateJWT, (req, res) => {
+  res.json({ok: true})
 })

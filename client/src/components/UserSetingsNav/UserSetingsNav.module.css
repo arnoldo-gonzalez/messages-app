@@ -16,3 +16,10 @@
 .container__li-name:focus {
   outline: 2px solid #000;
 }
+
+.user-settings {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #000;
+}

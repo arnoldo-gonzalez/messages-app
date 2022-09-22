@@ -17,7 +17,7 @@ export default function Header() {
       <div className={styles.header__title}>
         <Link to="/" title="Go to Home" className={styles["header__link-home"]}><PageTitle small={true} /></Link>
       </div>
-      <nav className={styles.header__nav}>
+      <nav className={styles.header__nav} aria-labelledby="primary-navigation">
         <CloseButton state={!isNavActive} setState={setIsNavActive} >
           <FaBars />
         </CloseButton>

@@ -1,0 +1,60 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.main__h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: underline #000;
+}
+
+.main__nav {
+  display: flex;
+  justify-content: center;
+  width: 90vw;
+  overflow-x: auto;
+  border: 3px solid rgb(206, 207, 208);
+  border-radius: 10px;
+  background-color: rgb(226, 227, 228);
+}
+
+.main__ul {
+  display: flex;
+  overflow-x: auto;
+  flex-grow: 1;
+  list-style: none;
+}
+
+.main__li {
+  display: block;
+  flex-grow: 1;
+}
+
+.main__li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 10px;
+  color: #000;
+  background-color: transparent;
+  text-decoration: none;
+  transition: none .2s ease-in;
+  transition-property: color, background-color;
+}
+
+.main__li:not(:first-child) a {
+  border-left: 3px solid rgb(206, 207, 208);
+}
+
+.main__li a.active {
+  color: #fff;
+  background-color: rgb(106, 107, 108);
+}
+
+.main__li a:hover, .main__li a:focus {
+  color: #fff;
+  background-color: rgb(12, 12, 13);
+}

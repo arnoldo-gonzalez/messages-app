@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
 import { useAlerts } from "../context/AlertsContext";
+import fetchResources from "../services/fetchResources";
 
-export default function useFetch(callback, description) {
+export default function useFetch(url, token, description) {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const {handleLogout} = useUser()
   const {types, handleToast} = useAlerts()
   
   useEffect(() => {
-    callback()
+    fetchResources(url, token)
       .then(result => {
         setIsLoading(false)
         if (!result?.error) return setData(result)

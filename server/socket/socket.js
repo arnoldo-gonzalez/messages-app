@@ -17,11 +17,9 @@ export default function socket(server) {
     const user = decodeJWT(token)
 
     socket.join(chatId)
-
     socket.to(chatId).emit("new_user", {username: user.username, sid: socket.id})
 
     const users = await getAllredyUsers(io, token, chatId)
-    console.log(users)
     socket.emit("alredy_users", users)
 
     Object.entries(Actions).forEach( ([type, fn]) => {

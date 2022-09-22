@@ -1,6 +1,6 @@
 import { decodeJWT } from "../helpers/JWT.js";
-import {getChat} from "../database/chatsDB.js";
-import {getOneUser} from "../database/usersDB.js";
+import { getChat } from "../database/chatsDB.js";
+import { getOneUser } from "../database/usersDB.js";
 
 export async function validateJWT(req, res, next) {
   const token = req.get("Authorization")
