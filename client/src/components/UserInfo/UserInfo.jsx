@@ -18,6 +18,11 @@ export default function UserInfo() {
           <p className={styles.section__p}>{email}</p>
           <button className={styles.section__btn}>Change</button>
         </article>
+        <article className={styles.section__article}>
+          <h3 className={styles.section__h3}>Password:</h3>
+          <p className={styles.section__p}>*************</p>
+          <button className={styles.section__btn}>Change</button>
+        </article>
       </section>
     </div>
   )

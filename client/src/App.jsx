@@ -9,6 +9,7 @@ import { SocketProvider } from "./context/SocketContext";
 import { AlertsProvider } from "./context/AlertsContext";
 import AuthorizedRoutes from "./components/AuthorizedRoutes";
 import UserInfo from "./components/UserInfo/UserInfo";
+import UserChatsCreated from "./components/UserChatsCreated/UserChatsCreated";
 import Header from "./components/Header/Header";
 
 import "react-toastify/dist/ReactToastify.min.css";
@@ -26,7 +27,7 @@ function App() {
             <Route path="/user_settings" element={<UserSettings />}>
               <Route index element={<UserInfo />}/>
               <Route path="info" element={<UserInfo />}/>
-              <Route path="chats_created" element={<UserInfo />}/>
+              <Route path="chats_created" element={<UserChatsCreated />}/>
             </Route>
             <Route path="/log_on_chat" element={<ChatsLogs />}/>
             <Route path="/:chatId/chat" element={<SocketProvider><Chat /></SocketProvider>} />

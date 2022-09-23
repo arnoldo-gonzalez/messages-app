@@ -11,7 +11,7 @@ export default function UserSettings() {
 
   return (
     <main className={styles.main}>
-      <h1 className={styles.main__h1}>Hello {username}</h1>
+      <h1 className={styles.main__h1}>Hello <b>{username}</b></h1>
       <nav className={styles.main__nav} aria-labelledby="navigation to change the content of user settings">
         <ul className={styles.main__ul}>
           <li className={styles.main__li}><NavLink className={changeClasses} to="info">Your information</NavLink></li>

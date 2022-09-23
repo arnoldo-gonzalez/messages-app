@@ -7,18 +7,17 @@
 
 .main__h1 {
   font-size: 28px;
-  font-weight: bold;
-  text-decoration: underline #000;
+  text-decoration: underline 4px #000;
 }
 
 .main__nav {
   display: flex;
   justify-content: center;
   width: 90vw;
+  max-width: 1000px;
   overflow-x: auto;
-  border: 3px solid rgb(206, 207, 208);
   border-radius: 10px;
-  background-color: rgb(226, 227, 228);
+  background-color: var(--grey);
 }
 
 .main__ul {
@@ -45,16 +44,16 @@
   transition-property: color, background-color;
 }
 
-.main__li:not(:first-child) a {
-  border-left: 3px solid rgb(206, 207, 208);
-}
-
 .main__li a.active {
   color: #fff;
-  background-color: rgb(106, 107, 108);
+  background-color: var(--grey-2);
 }
 
-.main__li a:hover, .main__li a:focus {
+.main__li a:hover {
   color: #fff;
-  background-color: rgb(12, 12, 13);
+  background-color: var(--grey-1);
+}
+
+.main__li a:focus {
+  border: 2px solid var(--green);
 }

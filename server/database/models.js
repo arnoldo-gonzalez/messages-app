@@ -9,7 +9,8 @@ const userSchema = new Schema({
   chats: [
     {
       title: String,
-      id: String
+      id: String,
+      visibility: String
     }
   ]
 })

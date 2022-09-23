@@ -1,5 +1,5 @@
 .container {
-  padding: 50px 0;
+  padding: 20px 0 50px;
   width: 100%;
 }
 
@@ -9,6 +9,12 @@
   font-size: 25px;
   text-align: center;
   text-decoration: underline 4px;
+}
+
+@media screen and (min-width: 800px) {
+  .title {
+    font-size: 30px;
+  }
 }
 
 .section {
@@ -24,7 +30,8 @@
   display: flex;
   align-items: center;
   padding: 15px 25px;
-  width: 90%;
+  width: 95%;
+  max-width: 800px;
   column-gap: 10px;
   border-radius: 15px;
   background-color: rgb(226, 227, 228);

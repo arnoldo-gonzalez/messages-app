@@ -11,12 +11,6 @@ export function createChat({chatId, title, visibility}) {
   return newChat.save()
 }
 
-export function removeAll() {
-  Chat.deleteMany()
-}
-
-removeAll()
-
 export async function addOneMessage({chatId, msg}) {
   const {date, body, user, id} = msg
   const newMessage = new Message({date, body, user, id})

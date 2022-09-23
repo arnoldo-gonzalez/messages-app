@@ -69,3 +69,9 @@ router.post("/api/sing_in", async (req, res) => {
 router.post("/api/validateToken", validateJWT, (req, res) => {
   res.json({ok: true})
 })
+
+router.get("/api/getChatsOfAndUser", validateJWT, (req, res) => {
+  const { chats } = req.user
+
+  res.json(chats)
+})

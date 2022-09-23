@@ -8,18 +8,18 @@ export const router = Router()
 
 router.post("/api/createChat", validateJWT, (req, res) => {
   const {title, visibility} = req.body
-  const lowerCasedVisibility = visibility.toLowerCase()
+  const lowerVisibility = visibility.toLowerCase()
 
-  if (!validateText(title) || !validateVisibility(lowerCasedVisibility) || title.length > 25) {
+  if (!validateText(title) || !validateVisibility(lowerVisibility) || title.length > 25) {
     return res.json({ok: false, error: "Invalid data"})
   }
 
   const chatId = createID()
   const user = req.user
 
-  createChat({chatId, title, visibility: lowerCasedVisibility})
+  createChat({chatId, title, visibility: lowerVisibility})
     .then( () => {
-      user.chats = user.chats.concat({title, id: chatId})
+      user.chats = user.chats.concat({title, id: chatId, visibility: lowerVisibility})
       user.save()
         .then(() => res.json({ok: true, error: null, chatId}))
         .catch(() => res.json({ok: true, error: "Error on save the chat", chatId}))

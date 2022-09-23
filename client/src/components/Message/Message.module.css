@@ -8,6 +8,8 @@
   border-radius: 10px;
   min-width: 10%;
   max-width: 70%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .message__h5, .message__p {
