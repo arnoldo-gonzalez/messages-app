@@ -1,17 +1,20 @@
-import { CgClose } from "react-icons/cg";
 import styles from "./CloseButton.module.css"
+import { forwardRef } from "react";
+import { CgClose } from "react-icons/cg";
 
-export default function CloseButton({children, state, setState, hidden = false}) {
+const CloseButton = forwardRef(({children, state, setState, hidden = false}, ref) => {
   const handleState = () => {
     setState(prev => !prev)
   }
 
   return (
-    <button onClick={handleState} className={`${styles.btn} ${hidden ? styles.hidden : ""}`}>
+    <button onClick={handleState} ref={ref} className={`${styles.btn} ${hidden ? styles.hidden : ""}`}>
       {state
       ? children
       : <CgClose />
       }
     </button>
   )
-}
+})
+
+export default CloseButton

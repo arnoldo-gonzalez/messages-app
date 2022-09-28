@@ -1,5 +1,5 @@
 import styles from "./ListOfUsers.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom"
 import User from "../User/User";
 import CloseButton from "../../atoms/CloseButton/CloseButton";
@@ -12,12 +12,20 @@ const el = document.createElement("div")
 export default function ListOfUsers() {
   const [active, setActive] = useState(false)
   const { socket } = useSocket()
-   
+  const closeListBtn = useRef()
+  const openListBtn = useRef()
+
   const [users, setUsers] = useState([])
-  
+
+  const handleOpenList = (newState) => {
+    setActive(newState)
+    if(!active) closeListBtn.current.focus()
+    else openListBtn.current.focus()
+  }  
+
   useEffect(() => {
     const closeBtnPlace = document.getElementById("close-btn-root")
-    closeBtnPlace.appendChild(el)
+    closeBtnPlace.insertBefore(el, closeBtnPlace.firstChild)
 
     const handleAlredyUsers = Handlers.createHandleAlredyUsers(setUsers)
     const handleNewUser = Handlers.createHandleNewUser(setUsers)
@@ -37,12 +45,12 @@ export default function ListOfUsers() {
   return (
     <>
     {createPortal(
-    <CloseButton state={true} setState={setActive}>
+    <CloseButton state={true} ref={openListBtn} setState={handleOpenList}>
       <FaUserFriends />
     </CloseButton>
     , el)}
     <aside className={`${styles.aside} ${active ? styles.active : ""}`}>
-      <CloseButton state={false} hide={!active} setState={setActive} />
+      <CloseButton ref={closeListBtn} state={false} hide={!active} setState={handleOpenList} />
       {users.length === 0 
       ? <h1 className={styles.aside__h1}>You're the only user in this chat</h1>
       : users.map( ({username, sid}) => <User key={sid} name={username} />)

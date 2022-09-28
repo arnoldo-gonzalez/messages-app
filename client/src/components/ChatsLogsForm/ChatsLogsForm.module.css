@@ -34,6 +34,11 @@
   transition-property: background-color, border-color, color;
 }
 
+.visibility-container__select:hover, .visibility-container__select:focus {
+  background-color: #fff;
+  color: #000;
+}
+
 .visibility-description {
   padding: 0 5px;
 }

@@ -49,7 +49,7 @@ BEGGING OF THE FORM
   transition: linear .15s;
 }
 
-.container-form__link:hover {
+.container-form__link:hover, .container-form__link:focus {
   color: #fff;
   text-decoration: underline 2px;
   background-color: #000;

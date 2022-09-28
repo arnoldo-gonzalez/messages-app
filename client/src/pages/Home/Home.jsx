@@ -2,8 +2,17 @@ import styles from "./Home.module.css";
 import heroImage from "../../assets/heroImage.png";
 import heroBgImage from "../../assets/heroBgImage.jpg";
 import aboutImage from "../../assets/aboutImage.jpg";
+import FeatureCard from "../../components/FeatureCard/FeatureCard";
+import { CgTime, CgLock, CgKey } from "react-icons/cg";
+import { FaUserFriends } from "react-icons/fa";
+import { useEffect } from "react"
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Messages RedWriters"
+  }, [])
+
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
@@ -23,7 +32,24 @@ export default function Home() {
         <img src={aboutImage} className={styles.about__img} alt="Our user sharing them feelings" />
       </section>
       <section className={styles.features}>
+        <h2 className={styles.features__h2}>You should chose us because...</h2>
+        <div className={styles["features__conatiner-articles"]}>
+          <FeatureCard icon={<CgTime/>} title="Real time chat">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
+          </FeatureCard>
 
+          <FeatureCard icon={<CgLock/>} title="Private/Public Chats">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
+          </FeatureCard>
+
+          <FeatureCard icon={<FaUserFriends/>} title="Meet new pepole">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
+          </FeatureCard>
+          
+          <FeatureCard icon={<CgKey/>} title="ChatId-Based key for chats">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
+          </FeatureCard>
+        </div>
       </section>
     </main>
   )

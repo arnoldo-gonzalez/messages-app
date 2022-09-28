@@ -3,24 +3,16 @@ import SearchForm from "../SearchForm/SearchForm";
 import ChatCard from "../ChatCard/ChatCard";
 import ChatsLogsSection from "../../atoms/ChatsLogsSection/ChatsLogsSection";
 import Loading from "../../atoms/Loading/Loading";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useUser } from "../../context/UserContext";
 
 export default function ChatSearchSection() {
   const {user: {token}} = useUser()
-  const url = `http://192.168.1.119:3000/api/getPublicChats`;
+  const url = `/api/getPublicChats`;
   const {isLoading, setData, data: chats} = useFetch(url, token, "Public chats");
 
   const [search, setSearch] = useState("")
-
-  useEffect(() => {
-    if (!chats?.length || !Array.isArray(chats)) return
-
-    const newChats = chats.filter(chat => chat.title.toLowerCase().includes(search.toLowerCase()))
-
-    setData(newChats)
-  }, [search])
 
   return (
   <ChatsLogsSection list={true}>
@@ -31,7 +23,7 @@ export default function ChatSearchSection() {
         ? <Loading text={true} />
         : !chats?.length 
         ? <h4 className={styles["list-of-chats__h4"]}>No public chat found</h4>
-        : chats.map(chat => <ChatCard key={chat.id} chat={chat} />)
+        : chats.filter(({title}) => title.toLowerCase().includes(search.toLowerCase())).map(chat => <ChatCard key={chat.id} chat={chat} />)
       }
     </section>
   </ChatsLogsSection>

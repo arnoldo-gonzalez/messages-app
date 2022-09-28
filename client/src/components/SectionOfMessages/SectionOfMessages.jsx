@@ -13,7 +13,7 @@ export default function SectionOfMessages() {
   const {user: {token, id}} = useUser()
   const { chatId, socket } = useSocket()
   const ref = useRef()
-  const url = `http://192.168.1.119:3000/api/${chatId}/getMessagesOfAnChat`;
+  const url = `/api/${chatId}/getMessagesOfAnChat`;
   const {isLoading, data: messages, setData: setMessages} = useFetch(url, token, "Messages on this chat")
   const prevDate = {year: "", month: "", day: "", weekDay: ""}
 
@@ -47,7 +47,7 @@ export default function SectionOfMessages() {
   }, [messages])
 
   return (
-    <section id="test" ref={ref} className={`${style.messages} ${messages.length === 0 ? style.center : ""}`}>
+    <section id="test" tabIndex="0" ref={ref} className={`${style.messages} ${messages.length === 0 ? style.center : ""}`}>
       { isLoading 
       ? <Loading text={true} />
       : messages.length === 0 

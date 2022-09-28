@@ -1,5 +1,5 @@
-import styles from "./UserSetingsNav.module.css"
-import OptionsList from "../../atoms/OptionsList/OptionsList"
+import styles from "./UserSetingsNav.module.css";
+import OptionsList from "../../atoms/OptionsList/OptionsList";
 import LogoutBtn from "../../components/LogoutBtn/LogoutBtn";
 import { useUser } from "../../context/UserContext";
 import { FaUserAlt, FaUserCog } from "react-icons/fa";

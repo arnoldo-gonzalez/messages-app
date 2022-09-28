@@ -10,6 +10,10 @@
   overflow-y: auto;
 }
 
+.messages:focus {
+  outline: 5px solid #000000;
+}
+
 @media screen and (min-width: 800px) {
   .messages {
     width: 70vw;

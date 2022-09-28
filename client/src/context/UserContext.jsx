@@ -32,7 +32,7 @@ export function UserProvider({children}) {
     if (!user) return
 
     const validateUser = () => {
-      return fetch("http://192.168.1.119:3000/api/validateToken", {
+      return fetch("/api/validateToken", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${user.token}`

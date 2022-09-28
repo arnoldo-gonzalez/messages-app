@@ -1,5 +1,6 @@
 import styles from "./Message.module.css";
-import DateOfMessage from "../../atoms/DateOfMessage/DateOfMessage"
+import DateOfMessage from "../../atoms/DateOfMessage/DateOfMessage";
+import parseTime from "../../helpers/parseTime.js"
 
 export default function Message({prevDate, setPrevDate, message: {body, user, date}, other}) {
   const sendTime = new Date(date)
@@ -18,7 +19,7 @@ export default function Message({prevDate, setPrevDate, message: {body, user, da
     <article className={`${styles.message} ${other ? styles.left : styles.rigth}`}>
       {other && <h5 className={styles.message__h5}>{user.username}</h5>}
       <p className={styles.message__p}>{body}</p>
-      <time className={styles.message__time} dateTime={`${year}-${month}-${day} ${hour}:${minute}`}>{hour}:{minute}</time>
+      <time className={styles.message__time} dateTime={`${year}-${month}-${day} ${hour}:${minute}`}>{parseTime(`${hour}:${minute}`)}</time>
     </article>
     </>
   )

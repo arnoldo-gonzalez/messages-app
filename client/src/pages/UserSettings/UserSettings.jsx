@@ -1,6 +1,7 @@
 import { useUser } from "../../context/UserContext";
 import styles from "./UserSettings.module.css";
 import { Outlet, NavLink } from "react-router-dom"
+import { useEffect } from "react";
 
 export default function UserSettings() {
   const {user: {username}} = useUser()
@@ -8,6 +9,10 @@ export default function UserSettings() {
   const changeClasses = ({isActive}) => {
     return isActive ? `${styles.main__li} ${styles.active}` : styles.main__li
   }
+
+  useEffect(() => {
+    document.title = `User Settings | ${username}`
+  }, [])
 
   return (
     <main className={styles.main}>

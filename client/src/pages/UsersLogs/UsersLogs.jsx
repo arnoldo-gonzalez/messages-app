@@ -6,10 +6,10 @@ import LogForm from "../../components/LogForm/LogForm";
 import { SING_IN, SING_UP } from "../../data/formsData";
 import PageTitle from "../../atoms/PageTitle/PageTitle";
 import { allContent } from "../../data/UsersLogs";
-import { useState } from "react";
 import Loading from "../../atoms/Loading/Loading";
 import { useAlerts } from "../../context/AlertsContext";
 import { useUser } from "../../context/UserContext";
+import { useState, useEffect } from "react";
 
 export default function UsersLogs({singIn}) {
   const {types, handleToast} = useAlerts()
@@ -32,6 +32,10 @@ export default function UsersLogs({singIn}) {
         handleToast(`Hello ${result.username}, You have sucessfully logged in`, types.success)
       })
   }
+
+  useEffect(() => {
+    document.title = contents.title
+  }, [singIn])
 
   return (
     <>

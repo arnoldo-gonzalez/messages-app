@@ -12,6 +12,12 @@
   word-wrap: break-word;
 }
 
+@media screen and (min-width: 800px) {
+  .message {
+    max-width: 60%;
+  }
+}
+
 .message__h5, .message__p {
   z-index: 10;
   position: relative;

@@ -13,7 +13,7 @@
   transition-property: color, background-color, border-color, opacity;
 }
 
-.btn:hover {
+.btn:hover, .btn:focus {
   border-color: transparent;
   background-color: #000;
   color: #ffffff;

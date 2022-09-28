@@ -8,7 +8,7 @@
   color: #000;
 }
 
-.nav__link:not(.active):hover {
+.nav__link:not(.active):hover, .nav__link:not(.active):focus {
   background-color: var(--bg-color);
 }
 
@@ -24,7 +24,11 @@
   transition: transform .2s ease-in;
 }
 
-.nav__link:not(.active):hover::after {
+.nav__link:focus {
+  outline: 4px solid var(--green);
+}
+
+.nav__link:not(.active):hover::after, .nav__link:not(.active):focus::after {
   transform: translateX(0%);
 }
 

@@ -3,7 +3,7 @@
   flex-grow: 1;
   display: flex;
   flex-direction: row-reverse;
-  width: 100;
+  width: 100%;
   overflow: hidden;
   height: calc(100vh - var(--header-heigth));
 }
@@ -52,8 +52,36 @@
 }
 
 .chatId-li {
+  position: relative;
   display: flex;
-  max-width: 150px;
-  overflow-x: auto;
-  overflow-y: hidden;
+  background-color: #fff;
+  border: 3px solid transparent;
 }
+
+.chatId-li:hover, .chatId-li:focus {
+  border-color: var(--green);
+}
+
+.chatId-li button {
+  position: relative;
+  text-align: left;
+  overflow: auto;
+  width: 150px;
+  overline: none;
+  border: none;
+  background-color: #fff;
+}
+
+.chatId-li .icon, .chatId-li .icon:hover {
+  position: absolute;
+  z-index: 20;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--green);
+  top: -8px;
+  right: -8px;
+  margin: auto;
+}
+
+

@@ -6,7 +6,7 @@ import { useUser } from "../../context/UserContext";
 
 export default function UserChatsCreated() {
   const {user: {token}} = useUser()
-  const url = "http://192.168.1.119:3000/api/getChatsOfAndUser"
+  const url = "http://192.168.1.117:3000/api/getChatsOfAndUser"
   const { data: chats, isLoading } = useFetch(url, token, "Chats created by you")
 
   return (
@@ -16,7 +16,7 @@ export default function UserChatsCreated() {
         { isLoading
           ? <Loading text={true} />
           : !chats.length
-          ? <h2>You have not created any chat</h2>
+          ? <h2 className={styles.section__h2}>You have not created any chat yet</h2>
           : chats.map(chat => <ChatCard key={chat.id} chat={chat}/>)
         }
       </section>

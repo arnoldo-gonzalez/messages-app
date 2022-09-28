@@ -19,7 +19,7 @@ export function SocketProvider ({children}) {
   const {types, handleToast} = useAlerts();
   const disconnectSocket = () => socket.disconnect();
   
-  const socket = io("http://192.168.1.119:3000", {
+  const socket = io("/", {
     auth: { token, chatId }
   })
 

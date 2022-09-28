@@ -21,8 +21,18 @@
 
 .section {
   position: relative;
-  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
   width: 95%;
+  max-width: 800px;
+  border: 2px solid #000;
   border-radius: 10px;
   background-color: var(--grey);
+}
+
+.section__h2 {
+  text-align: center;
+  margin: auto 0;
+  padding-bottom: 50px;
 }

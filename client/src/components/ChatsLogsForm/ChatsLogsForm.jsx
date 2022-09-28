@@ -3,11 +3,14 @@ import Input from "../../atoms/Input/Input"
 import { useState } from "react";
 import { useAlerts } from "../../context/AlertsContext"
 
+const descriptions = {
+  publicDescription: "All users will can see and get into this chat",
+  privateDescription: "Nobody will can see this chat, and only users that have the chat id can get into"
+}
+
 export default function ChatsLogsForm({label, id, placeholder, name, createChat, onSubmit}) {
   const [data, setData] = useState(() => {
-    if (createChat === "true") {
-      return {chatTitle: "", visibility: "public", publicDescription: "All users will can see and get into this chat", privateDescription: "Nobody will can see this chat, and only users that have the chat id can get into"}
-    }
+    if (createChat === "true") return {chatTitle: "", visibility: "public"}
 
     return {chatId: ""}
   })
@@ -50,7 +53,7 @@ export default function ChatsLogsForm({label, id, placeholder, name, createChat,
             <option name="private" value="private">Private</option>
           </select>
         </div>
-        <p className={styles["visibility-description"]}><span>Description:</span> {data[data.visibility + "Description"]}</p>
+        <p className={styles["visibility-description"]}><span>Description:</span> {descriptions[data.visibility + "Description"]}</p>
       </>
       )}
       <Input value={createChat === "true" ? "Create the chat" : "Enter in the chat"} label={false} type="submit" />

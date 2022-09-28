@@ -14,8 +14,8 @@ export default function LogoutBtn() {
 
   return (
     <button title="Log out" className={styles.btn} onClick={handleCLick} >
-      Log out
       <span><MdOutlineLogout alt="Logout" /></span>
+      Log out
     </button>
   )
 }
