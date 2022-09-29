@@ -25,6 +25,7 @@ export default function ChatLogsSections() {
             handleToast("You must be logged to to that action", types.error)
             return handleLogout()
           }
+          handleToast("Chat successfully created", types.success)
           return res.chatId
         })
     } else {
@@ -37,12 +38,12 @@ export default function ChatLogsSections() {
 
   return (
     <div className={styles["container-sections"]}>
-      {isLoading && <Loading text={true} />}
       <ChatsLogsSection>
         <h2><b data-color="red">Enter</b> in a chat</h2>
         <ChatsLogsForm onSubmit={handleAction} createChat="false" id="chatId" name="chatId" label="Enter the chatId" placeholder="AssmKJd_12-da..."/>
       </ChatsLogsSection>
       <ChatsLogsSection>
+        {isLoading && <Loading text={true} />}
         <h2><b data-color="green">Create</b> a chat</h2>
         <ChatsLogsForm onSubmit={handleAction} createChat="true" id="chatTitle" name="chatTitle" label="Enter the Title" placeholder="For example: My first chat"/>
       </ChatsLogsSection>

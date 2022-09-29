@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.list-of-chats:focus {
+  outline: 4px solid #000;
+}
+
 .list-of-chats__h4 {
   position: absolute;
   display: inline;

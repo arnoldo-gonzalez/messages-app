@@ -11,7 +11,7 @@
 }
 
 .messages:focus {
-  outline: 5px solid #000000;
+  outline: 3px solid #000000;
 }
 
 @media screen and (min-width: 800px) {

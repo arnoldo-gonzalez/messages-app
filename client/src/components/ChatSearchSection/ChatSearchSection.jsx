@@ -17,8 +17,8 @@ export default function ChatSearchSection() {
   return (
   <ChatsLogsSection list={true}>
     <h2><b data-color="green">Enter</b> on some <b data-color="red">public</b> chat</h2>
-    <SearchForm tabIndex="5" search={search} setSearch={setSearch}/>
-    <section className={styles["list-of-chats"]}>
+    <SearchForm tabIndex="0" search={search} setSearch={setSearch}/>
+    <section className={styles["list-of-chats"]} tabIndex="0" aria-label="List of public chats">
       { isLoading 
         ? <Loading text={true} />
         : !chats?.length 

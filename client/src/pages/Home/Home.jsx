@@ -3,8 +3,9 @@ import heroImage from "../../assets/heroImage.png";
 import heroBgImage from "../../assets/heroBgImage.jpg";
 import aboutImage from "../../assets/aboutImage.jpg";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
-import { CgTime, CgLock, CgKey } from "react-icons/cg";
-import { FaUserFriends } from "react-icons/fa";
+import { CgTime, CgLock, CgCodeSlash } from "react-icons/cg";
+import { FaUserFriends, FaGithub, FaKey } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
 import { useEffect } from "react"
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
   }, [])
 
   return (
+    <>
     <main className={styles.main}>
       <section className={styles.hero}>
         <article className={styles.hero__article}>
@@ -34,23 +36,34 @@ export default function Home() {
       <section className={styles.features}>
         <h2 className={styles.features__h2}>You should chose us because...</h2>
         <div className={styles["features__conatiner-articles"]}>
-          <FeatureCard icon={<CgTime/>} title="Real time chat">
+          <FeatureCard icon={CgTime} title="Real time chat" id="rtc">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
           </FeatureCard>
 
-          <FeatureCard icon={<CgLock/>} title="Private/Public Chats">
+          <FeatureCard icon={CgLock} title="Private/Public Chats" id="ppc">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
           </FeatureCard>
 
-          <FeatureCard icon={<FaUserFriends/>} title="Meet new pepole">
+          <FeatureCard icon={FaUserFriends} title="Meet new pepole" id="mwp">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
           </FeatureCard>
           
-          <FeatureCard icon={<CgKey/>} title="ChatId-Based key for chats">
+          <FeatureCard icon={FaKey} title="ChatId-Based key for chats" id="chk">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, laborum, placeat illo provident dolorem sapiente quis, veniam recusandae delectus perspiciatis nulla accusantium voluptatum adipisci minus? Similique sed neque maiores quas?
           </FeatureCard>
         </div>
       </section>
     </main>
+    <footer className={styles.footer}>
+      <address className={styles.footer__address}>
+        <h3 className={styles.footer__h3}>Page Created by <i>Arnoldo González</i></h3>
+        <ul className={styles.footer__ul}>
+          <li><a target="_blank" href="https://twitter.com/Arnoldo81333853" className={styles.footer__a}><span id="gh">Go to my GitHub</span><FaGithub aria-labelledby="gh" /></a></li>
+          <li><a target="_blank" href="https://github.com/BlackBarto" className={styles.footer__a}><span id="tw">Go to my Twitter</span><BsTwitter aria-labelledby="tw" /></a></li>
+          <li><a target="_blank" href="https://github.com/BlackBarto/messages-app" className={styles.footer__a}><span id="src">Go to the Souce Code</span><CgCodeSlash aria-labelledby="src" /></a></li>
+        </ul>
+      </address>
+    </footer>
+    </>
   )
 }

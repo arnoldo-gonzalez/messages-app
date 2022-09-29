@@ -3,7 +3,7 @@ import {MdOutlineLogout} from "react-icons/md";
 import { useUser } from "../../context/UserContext";
 import { useAlerts } from "../../context/AlertsContext";
 
-export default function LogoutBtn() {
+export default function LogoutBtn({tabIndex}) {
   const {handleLogout} = useUser()
   const {types, handleToast} = useAlerts()
 
@@ -13,7 +13,7 @@ export default function LogoutBtn() {
   }
 
   return (
-    <button title="Log out" className={styles.btn} onClick={handleCLick} >
+    <button tabIndex={tabIndex} title="Log out" className={styles.btn} onClick={handleCLick} >
       <span><MdOutlineLogout alt="Logout" /></span>
       Log out
     </button>

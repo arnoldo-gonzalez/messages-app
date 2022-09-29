@@ -14,7 +14,7 @@
   -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   background-color: var(--main-color);
-  border-right: 2px solid var(--main-color);
+  border-right: 3px solid var(--main-color);
   transition: clip-path ease-in-out .4s;
 }
 

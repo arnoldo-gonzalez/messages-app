@@ -22,7 +22,7 @@ export function AlertsProvider({children}) {
   return (
     <AlertsContext.Provider value={data}>
       {children}
-      <ToastContainer autoClose={false} />
+      <ToastContainer autoClose={30000} />
     </AlertsContext.Provider>
   )
 }

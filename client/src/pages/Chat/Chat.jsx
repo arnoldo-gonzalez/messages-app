@@ -27,8 +27,12 @@ export default function Chat() {
           <ChatTitle />
           <div id="close-btn-root" className={styles["close-btn-root"]}>
             <OptionsList icon={<IoSettingsSharp />} text="Open and close the Chat settings" position="center">
-              <li>Chat Settings</li>
-              <li className={styles["chatId-li"]}><FiCopy className={styles.icon} /><button onClick={handleCopyOfChatId}>Chat id: {chatId}</button></li>
+              {(tabIndex) => (
+              <>
+                <li>Chat Settings</li>
+                <li className={styles["chatId-li"]}><FiCopy className={styles.icon} /><button tabIndex={tabIndex} onClick={handleCopyOfChatId}>Chat id: {chatId}</button></li>
+              </>
+              )}
             </OptionsList>
           </div>
         </header>

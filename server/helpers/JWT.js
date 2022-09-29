@@ -3,7 +3,7 @@ import { SECRET } from "../configs.js"
 
 export function createJWT({username, uuid}) {
   return jwt.sign({username, uuid}, SECRET, {
-    expiresIn: "12h"
+    expiresIn: "24h"
   })
 }
 
