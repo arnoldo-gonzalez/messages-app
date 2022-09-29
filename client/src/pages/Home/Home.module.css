@@ -199,6 +199,9 @@
 
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 13rem;
   background-color: var(--ligth-main-color);
 }
@@ -210,6 +213,7 @@
   justify-content: center;
   gap: 10px;
   height: 100%;
+  width: 100%;
   padding: 15px 10px;
 }
 
