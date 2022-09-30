@@ -38,11 +38,12 @@ export function UserProvider({children}) {
           "Authorization": `Bearer ${user.token}`
         },
       })
-        .then( (res) => res.ok ? res.json() : Promise.reject())
+        .then( (res) => res.ok ? res.json() : Promise.reject(res.status))
         .then( json => {
           return json.ok || handleLogout()
         })
-        .catch( () => {
+        .catch( (code) => {
+          if (code === 401) return handleLogout()
           handleToast("Some thing fail, check your connection and try again", types.error)
           handleLogout()
         })

@@ -19,6 +19,14 @@ const app = express()
 const server = http.createServer(app)
 socketActions(server)
 
+app.use((req, res, next) => {
+  if (req.url.startsWith("/assets")) {
+    res.append("Cache-Control", "public, max-age=172800000")
+    res.append("Expires", new Date(Date.now() + 172800000).toUTCString())
+  }
+  next()
+})
+
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(morgan("dev"))

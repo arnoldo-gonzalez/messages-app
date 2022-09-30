@@ -9,7 +9,6 @@ export default function fetchResources(url, token) {
     .then(res => res.ok ? res.json() : Promise.reject(res.status))
     .then(json => json)
     .catch(code => {
-      console.log(code)
       return {error: true, code}
     })
 }
