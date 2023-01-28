@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useUser } from "./UserContext";
 import { useAlerts } from "./AlertsContext";
 import { CreateHandleDissconnect, CreateHandleError } from "../helpers/socketHandlers";
+import {BASE_URL} from "../data/vars"
 
 const SocketContext = createContext()
 
@@ -19,7 +20,7 @@ export function SocketProvider ({children}) {
   const {types, handleToast} = useAlerts();
   const disconnectSocket = () => socket.disconnect();
   
-  const socket = io("/", {
+  const socket = io(`${BASE_URL}/`, {
     auth: { token, chatId }
   })
 

@@ -5,6 +5,7 @@ import style from "./SectionOfMessages.module.css";
 import { useSocket } from "../../context/SocketContext";
 import { useUser } from "../../context/UserContext";
 import Loading from "../../atoms/Loading/Loading";
+import {BASE_URL} from "../../data/vars"
 
 let renders = 0
 let scrollToBottom = true
@@ -13,7 +14,7 @@ export default function SectionOfMessages() {
   const {user: {token, id}} = useUser()
   const { chatId, socket } = useSocket()
   const ref = useRef()
-  const url = `/api/${chatId}/getMessagesOfAnChat`;
+  const url = `${BASE_URL}/api/${chatId}/getMessagesOfAnChat`;
   const {isLoading, data: messages, setData: setMessages} = useFetch(url, token, "Messages on this chat")
   const prevDate = {year: "", month: "", day: "", weekDay: ""}
 

@@ -3,10 +3,11 @@ import Loading from "../../atoms/Loading/Loading"
 import ChatCard from "../ChatCard/ChatCard";
 import useFetch from "../../hooks/useFetch";
 import { useUser } from "../../context/UserContext";
+import {BASE_URL} from "../../data/vars"
 
 export default function UserChatsCreated() {
   const {user: {token}} = useUser()
-  const url = "http://192.168.1.117:3000/api/getChatsOfAndUser"
+  const url = `${BASE_URL}/api/getChatsOfAndUser`
   const { data: chats, isLoading } = useFetch(url, token, "Chats created by you")
 
   return (

@@ -25,7 +25,7 @@ export default function SendMessageForm() {
   
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <input type="text" name="message" aria-label="Write a message" placeholder="Write a message" autoComplete="off" />
+      <textarea name="message" aria-label="Write a message" placeholder="Write a message..."></textarea>
       <button aria-label="Send" title="Send message" type="submit">
         <IoMdSend />
       </button>

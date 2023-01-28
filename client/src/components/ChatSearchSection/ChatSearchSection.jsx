@@ -6,10 +6,11 @@ import Loading from "../../atoms/Loading/Loading";
 import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useUser } from "../../context/UserContext";
+import {BASE_URL} from "../../data/vars"
 
 export default function ChatSearchSection() {
   const {user: {token}} = useUser()
-  const url = `/api/getPublicChats`;
+  const url = `${BASE_URL}/api/getPublicChats`;
   const {isLoading, setData, data: chats} = useFetch(url, token, "Public chats");
 
   const [search, setSearch] = useState("")

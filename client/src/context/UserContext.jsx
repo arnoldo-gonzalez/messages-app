@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAlerts } from "./AlertsContext"
+import {validateUser} from "../services/validateUser"
 
 const UserContext = createContext()
 
@@ -13,6 +14,7 @@ export function UserProvider({children}) {
   const validUser = user && user.username && user.token && typeof(user.username) === "string" && user.username.length > 3 && typeof(user.token) === "string"
   const navigate = useNavigate()
   const {types, handleToast} = useAlerts()
+
   const handleLogout = () => {
     setUser(null)
     localStorage.removeItem("user")
@@ -24,34 +26,21 @@ export function UserProvider({children}) {
     navigate(nextUrl, {replace: true})
   }
 
+  const handleError = () => {
+    handleToast("Some thing fail, check your connection and try again", types.error)
+    handleLogout()
+  }
+
   if (!validUser && user) handleLogout()
 
   const data = {user: validUser ? user : null, handleLogout, handleLogin}
 
   useEffect(() => {
-    if (!user) return
+    if (!user || !validUser) return
 
-    const validateUser = () => {
-      return fetch("/api/validateToken", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${user.token}`
-        },
-      })
-        .then( (res) => res.ok ? res.json() : Promise.reject(res.status))
-        .then( json => {
-          return json.ok || handleLogout()
-        })
-        .catch( (code) => {
-          if (code === 401) return handleLogout()
-          handleToast("Some thing fail, check your connection and try again", types.error)
-          handleLogout()
-        })
-    }
+    validateUser({user, handleLogout, handleError})
 
-    validateUser()
-
-    const validateInterval = setInterval(validateUser, 1000 * 60 * 60)
+    const validateInterval = setInterval(() => validateUser({user, handleLogout, handleError}), 1000 * 60 * 60)
 
     return () => clearInterval(validateInterval)
   }, [user])

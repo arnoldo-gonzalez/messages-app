@@ -1,5 +1,7 @@
+import {BASE_URL} from "../data/vars"
+
 export default function createChat (token, data) {
-  return fetch("/api/createChat", {
+  return fetch(`${BASE_URL}/api/createChat`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
