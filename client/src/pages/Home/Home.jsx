@@ -59,8 +59,8 @@ export default function Home() {
         <h3 className={styles.footer__h3}>Page Created by <i>Arnoldo González</i></h3>
         <ul className={styles.footer__ul}>
           <li><a target="_blank" href="https://twitter.com/Arnoldo81333853" className={styles.footer__a}><span id="gh">Go to my GitHub</span><FaGithub aria-labelledby="gh" /></a></li>
-          <li><a target="_blank" href="https://github.com/BlackBarto" className={styles.footer__a}><span id="tw">Go to my Twitter</span><BsTwitter aria-labelledby="tw" /></a></li>
-          <li><a target="_blank" href="https://github.com/BlackBarto/messages-app" className={styles.footer__a}><span id="src">Go to the Souce Code</span><CgCodeSlash aria-labelledby="src" /></a></li>
+          <li><a target="_blank" href="https://github.com/arnoldo-gonzalez" className={styles.footer__a}><span id="tw">Go to my Twitter</span><BsTwitter aria-labelledby="tw" /></a></li>
+          <li><a target="_blank" href="https://github.com/arnoldo-gonzalez/messages-app" className={styles.footer__a}><span id="src">Go to the Souce Code</span><CgCodeSlash aria-labelledby="src" /></a></li>
         </ul>
       </address>
     </footer>
