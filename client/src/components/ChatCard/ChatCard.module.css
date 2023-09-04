@@ -13,6 +13,7 @@
 .article__content {
   flex-grow: 1;
   display: flex;
+  align-items: center;
   gap: 30px;
 }
 
@@ -35,6 +36,57 @@
   font-size: 18px;
 }
 
+.article__copybtn {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--green);
+  border-radius: var(--rounded-sm);
+  outline: none;
+  padding: 5px 8px;
+  gap: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background .2s ease-in;
+}
+
+.article__copybtn::after {
+  content: "";
+  position: absolute;
+  right: 50px;
+  width: 200%;
+  height: 100%;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: var(--green);
+  transform: rotate(90deg);
+  transition: transform .3s ease-in-out;
+}
+
+.article__copybtn:hover::after, .article__copybtn:focus::after {
+  transform: rotate(0) translateX(50px);
+}
+
+.article__copybtn span {
+  color: #000;
+  position: relative;
+  z-index: 10;
+  transition: color .15s ease-in-out;
+}
+
+.article__copybtn:hover span {
+  color: #fff;
+}
+
+.article__copybtn .icon {
+  position: relative;
+  z-index: 10;
+  color: #000;
+  height: 30px;
+  width: 30px;
+}
+
 .article__btn {
   padding: 10px;
   border-radius: 20px;
@@ -49,4 +101,19 @@
 .article__btn:hover, .article__btn:focus {
   border-color: var(--green);
   background-color: #fff;
+}
+
+@media screen and (min-width: 1000px) {
+  .article__copybtn {
+    border-color: transparent;
+  }
+
+  .article__copybtn:focus, .article__copybtn:hover {
+    background-color: transparent;
+  }
+
+  .article__copybtn .icon {
+    height: 25px;
+    width: 25px;
+  }
 }

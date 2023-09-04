@@ -9,6 +9,7 @@ import { SocketProvider } from "./context/SocketContext";
 import { AlertsProvider } from "./context/AlertsContext";
 import AuthorizedRoutes from "./components/AuthorizedRoutes";
 import UserInfo from "./components/UserInfo/UserInfo";
+import UserSettingsIndex from "./components/UserSettingsIndex/UserSettingsIndex";
 import UserChatsCreated from "./components/UserChatsCreated/UserChatsCreated";
 import Header from "./components/Header/Header";
 
@@ -25,7 +26,7 @@ function App() {
           <Route path="/sing_up" element={<UsersLogs singIn={false} />}/>
           <Route element={<AuthorizedRoutes />}>
             <Route path="/user_settings" element={<UserSettings />}>
-              <Route index element={<UserInfo />}/>
+              <Route index element={<UserSettingsIndex />}/>
               <Route path="info" element={<UserInfo />}/>
               <Route path="chats_created" element={<UserChatsCreated />}/>
             </Route>

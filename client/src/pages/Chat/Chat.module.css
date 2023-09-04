@@ -67,7 +67,7 @@
   text-align: left;
   overflow: auto;
   width: 150px;
-  overline: none;
+  outline: none;
   border: none;
   background-color: #fff;
 }

@@ -2,16 +2,16 @@ import styles from "./Home.module.css";
 import heroImage from "../../assets/heroImage.png";
 import heroBgImage from "../../assets/heroBgImage.jpg";
 import aboutImage from "../../assets/aboutImage.jpg";
+import Footer from "../../components/Footer/Footer";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
-import { CgTime, CgLock, CgCodeSlash } from "react-icons/cg";
-import { FaUserFriends, FaGithub, FaKey } from "react-icons/fa";
-import { BsTwitter } from "react-icons/bs";
+import { CgTime, CgLock } from "react-icons/cg";
+import { FaUserFriends, FaKey } from "react-icons/fa";
 import { useEffect } from "react"
 
 export default function Home() {
 
   useEffect(() => {
-    document.title = "Messages RedWriters"
+    document.title = "Messages ReadWriters"
   }, [])
 
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <section className={styles.hero}>
         <article className={styles.hero__article}>
           <h1 className={styles.hero__h1}>We make <span className="red">posible</span> connect with your <span className="green">friends</span></h1>
-          <p className={styles.hero__p}>In this place, you will be connected to your friends by more that messages, you will be connected by feelings printed in text</p>
+          <p className={styles.hero__p}>In this place, you will be connected to your friends by more than just messages, you will be connected by feelings printed in text</p>
         </article>
         <img className={styles["hero__bg-img"]} src={heroBgImage} alt="Messages RedWriters Connecting the pepole" />
         <img className={styles.hero__img} src={heroImage} alt="Messages RedWriters Connecting the pepole" />
@@ -53,17 +53,8 @@ export default function Home() {
           </FeatureCard>
         </div>
       </section>
+      <Footer/>
     </main>
-    <footer className={styles.footer}>
-      <address className={styles.footer__address}>
-        <h3 className={styles.footer__h3}>Page Created by <i>Arnoldo González</i></h3>
-        <ul className={styles.footer__ul}>
-          <li><a target="_blank" href="https://twitter.com/Arnoldo81333853" className={styles.footer__a}><span id="gh">Go to my GitHub</span><FaGithub aria-labelledby="gh" /></a></li>
-          <li><a target="_blank" href="https://github.com/arnoldo-gonzalez" className={styles.footer__a}><span id="tw">Go to my Twitter</span><BsTwitter aria-labelledby="tw" /></a></li>
-          <li><a target="_blank" href="https://github.com/arnoldo-gonzalez/messages-app" className={styles.footer__a}><span id="src">Go to the Souce Code</span><CgCodeSlash aria-labelledby="src" /></a></li>
-        </ul>
-      </address>
-    </footer>
     </>
   )
 }
