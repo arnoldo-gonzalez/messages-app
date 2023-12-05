@@ -16,12 +16,18 @@
   --md: 20px;
   --base: 16px;
   --sm: 13px;
-  --header-heigth: 17vh;
+  --header-heigth: 10rem;
+}
+
+@media screen and (min-width: 350px) {
+  :root {
+    --header-heigth: 6rem;
+  }
 }
 
 @media screen and (min-width: 500px) {
   :root {
-    --header-heigth: 13vh;
+    --header-heigth: 5rem;
   }
 }
 
@@ -32,6 +38,10 @@
 
 * {
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+#root {
+  padding-top: var(--header-heigth);
 }
 
 .green {

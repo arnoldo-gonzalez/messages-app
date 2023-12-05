@@ -1,20 +1,23 @@
 .header {
-  position: sticky;
+  position: fixed;
   display: flex;
+  flex-direction: column;
+  row-gap: 15px;
   flex-wrap: wrap;
   top: 0;
-  row-gap: 10px;
   align-items: center;
   justify-content: center;
   z-index: 1100;
   height: var(--header-heigth);
+  width: 100vw;
   min-height: 5rem;
   padding: 0 15px;
   background-color: var(--main-color);
 }
 
+
 .header__title {
-  flex-grow: 1;
+  flex-grow: 0;
   display: flex;
   justify-content: center;
   padding-right: 10px;
@@ -30,10 +33,19 @@
 }
 
 .header__container-nav {
-  flex-grow: 1;
+  flex-grow: 0;
   display: flex;
   align-items: center;
   gap: 15px;
   justify-content: center;
 }
 
+@media screen and (min-width: 350px) {
+  .header {
+    flex-direction: row;
+  }
+
+  .header__title, .header__container-nav {
+    flex-grow: 1;
+  }
+}
